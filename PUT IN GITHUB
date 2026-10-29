@@ -1,0 +1,7 @@
+# code only — safe to commit
+git add . && git commit -m "Rights Regression Radar" && git push
+
+# the big archive — attach to a release instead
+gh release create v0.1.0 rrr-full-with-model.zip rrr-code.zip \
+  --title "Rights Regression Radar v0.1.0" \
+  --notes "Four-class classifier, test macro-F1 0.965. See MANIFEST.md."
