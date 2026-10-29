@@ -1,0 +1,8 @@
+unzip rrr-full-with-model.zip
+cd rrr
+python -m venv .venv && source .venv/bin/activate
+pip install -e ".[dev]"
+
+PYTHONPATH=src python -m pytest tests/ -q        # 26 tests
+PYTHONPATH=src python -m rrr.demo --compare      # model vs baselines
+PYTHONPATH=src python -m uvicorn rrr.api.service:app --port 8000
